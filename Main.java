@@ -1,56 +1,44 @@
 public class Main {
     public static void main(String[] args) {
 
-        Queue queue = new Queue();
-        Stack<String> stack = new Stack<>();
-
-        while (!StdIn.isEmpty()) {
-            LogNode newNode = new LogNode(StdIn.readLine());
-            queue.enqueue(newNode); // Putting logs into the Queue
-        }
-        queue.printQueue(); // For debugging
+        System.out.println("Program has started.");
 
         int errorCount = 0;
         int warnCount = 0;
         int warnMemCount = 0;
         int infoCount = 0;
 
+        Queue<String> queue = new Queue<>();
+        Stack<String> stack = new Stack<>();
+
+        while(!StdIn.isEmpty()){
+            LogNode<String> newNode = new LogNode<>(StdIn.readLine());
+            queue.enqueue(newNode.data);
+        }
+        queue.printQueue();
+
         while (!queue.isEmpty()) {
-            LogNode node = queue.dequeue(); // dequeue needs to be fixed
-            if(node != null && node.equals("ERROR")){
-                stack.push(node);
+            String item = queue.dequeue(); // dequeue needs to be fixed
+            if(item != null && item.contains("ERROR")){
+                stack.push(item);
                 errorCount++;
             }
-            else if (node!= null && node.equals("WARN")){
+            else if (item!= null && item.contains("WARN")){
                 warnCount++;
-                if(node.equals("Memory")){
+                if(item.contains("Memory")){
                     warnMemCount++;
                 }
             }
-            else if(node!= null && node.equals("INFO")){
+            else if(item!= null && item.contains("INFO")){
                 infoCount++;
             }
         }
 
-        int popCount = 0 ;
-        int maxPops = 100;
-
-        while(!stack.isEmpty() && popCount < maxPops){
-           String errorLog = stack.pop();
-           System.out.println(errorLog);
-
-           popCount++;
-
-            if(popCount == maxPops){
-                System.out.println("Error Stack has reached 100 pops.");
-                break;
-            }
-        }
-
-        System.out.println("INFO: " + infoCount);
-        System.out.println("WARN: " + warnCount);
-        System.out.println("ERROR: " + errorCount);
-        System.out.println("Memory Warnings: " + warnMemCount);
+        System.out.println("CVS Analysis: ");
+        System.out.println("Error count: " + errorCount);
+        System.out.println("All Warnings log count: " + warnCount);
+        System.out.println("Memory Warnings log count: " + warnMemCount);
+        System.out.println("Info log count: " + infoCount);
 
     }
 }
