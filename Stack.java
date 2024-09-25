@@ -20,7 +20,7 @@
         // adds an item to the front
         public void push(Type item) {
             if (isEmpty()) {
-                // If the Steque is empty, both first and last should point to the new node
+
                 last = new Node();
                 last.item = item;
                 last.next = null;
@@ -47,5 +47,13 @@
             }
             return item;
         }
-
+        public void printStack() {
+            Node current = first;
+            while (current != null) {
+                System.out.print(current.item + " ");
+                current = current.next; // goes to the next node
+            }
+            System.out.println();
+        }
     }
+
