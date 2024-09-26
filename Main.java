@@ -12,7 +12,9 @@ public class Main {
         Stack<String> stack = new Stack<>();
 
         while(!StdIn.isEmpty()){
-            LogNode<String> newNode = new LogNode<>(StdIn.readLine());
+
+            LogNode<String> newNode = new LogNode<String>(StdIn.readLine());
+
             queue.enqueue(newNode.data);
         }
         queue.printQueue();
@@ -34,7 +36,8 @@ public class Main {
             }
         }
 
-        System.out.println("CVS Analysis: ");
+        System.out.println("CSV Analysis: ");
+
         System.out.println("Error count: " + errorCount);
         System.out.println("All Warnings log count: " + warnCount);
         System.out.println("Memory Warnings log count: " + warnMemCount);
