@@ -11,6 +11,8 @@ public class Main {
         Queue<String> queue = new Queue<>();
         Stack<String> stack = new Stack<>();
 
+        //This is an example
+
         while(!StdIn.isEmpty()){
 
             LogNode<String> newNode = new LogNode<String>(StdIn.readLine());
