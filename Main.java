@@ -1,8 +1,6 @@
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Program has started.");
-
         int errorCount = 0;
         int warnCount = 0;
         int warnMemCount = 0;
@@ -12,12 +10,9 @@ public class Main {
         Stack<String> stack = new Stack<>();
 
         while(!StdIn.isEmpty()){
-
-            LogNode<String> newNode = new LogNode<String>(StdIn.readLine());
-
+            LogNode<String> newNode = new LogNode<>(StdIn.readLine());
             queue.enqueue(newNode.data);
         }
-        queue.printQueue();
 
         while (!queue.isEmpty()) {
             String item = queue.dequeue(); // dequeue needs to be fixed
@@ -36,12 +31,17 @@ public class Main {
             }
         }
 
-        System.out.println("CSV Analysis: ");
+        System.out.println("Last 100 errors: ");
+        for(int i = 0; i < 100; i++){
+            stack.print();
+        }
 
+        System.out.println();
+        System.out.println("CSV Analysis: ");
         System.out.println("Error count: " + errorCount);
         System.out.println("All Warnings log count: " + warnCount);
         System.out.println("Memory Warnings log count: " + warnMemCount);
         System.out.println("Info log count: " + infoCount);
-
+        System.out.println();
     }
 }
