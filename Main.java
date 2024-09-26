@@ -31,17 +31,17 @@ public class Main {
             }
         }
 
+        System.out.println("\nAssignment 1 - Luke Stanford & Camryn McPhaul\n");
+
         System.out.println("Last 100 errors: ");
         for(int i = 0; i < 100; i++){
             stack.print();
         }
 
-        System.out.println();
-        System.out.println("CSV Analysis: ");
+        System.out.println("\nCSV Analysis: ");
         System.out.println("Error count: " + errorCount);
         System.out.println("All Warnings log count: " + warnCount);
         System.out.println("Memory Warnings log count: " + warnMemCount);
-        System.out.println("Info log count: " + infoCount);
-        System.out.println();
+        System.out.println("Info log count: " + infoCount + "\n");
     }
 }
